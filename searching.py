@@ -24,15 +24,12 @@ def read_data(file_name, field):
 def linear_search(numbers_sekvention, looking_number):
     slovnik = {"positions of number": [], "appears of number": 0}
 
-    index = 0
-    for number in numbers_sekvention:
+    for index, number in enumerate(numbers_sekvention):
 
         if number == looking_number:
 
             slovnik["positions of number"].append(index)
             slovnik["appears of number"] += 1
-
-        index += 1
 
     return slovnik
 
@@ -43,7 +40,9 @@ def linear_search(numbers_sekvention, looking_number):
 def main():
     sequantial_data = read_data("sequential.json", "unordered_numbers")
     print(sequantial_data)
-    analysa = linear_search(sequantial_data,9)
+    analysa = linear_search(sequantial_data, 0)
     print(analysa)
+
+
 if __name__ == '__main__':
     main()
