@@ -34,13 +34,22 @@ def linear_search(numbers_sekvention, looking_number):
     return slovnik
 
 
+def pattern_search(sequence, pattern):
+    length_pattern = len(pattern)
+    positions = set()
+
+    for position, letter in enumerate(sequence):
+        if sequence[position:position + length_pattern] == pattern:
+            positions.add(position)
+
+    return positions
 
 
 
 def main():
-    sequantial_data = read_data("sequential.json", "unordered_numbers")
+    sequantial_data = read_data("sequential.json", "dna_sequence")
     print(sequantial_data)
-    analysa = linear_search(sequantial_data, 0)
+    analysa = pattern_search(sequantial_data, "GCA")
     print(analysa)
 
 
